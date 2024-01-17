@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details - Pokémon Card Trading</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+            background: #555;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        .card {
+            background: #eee;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Profile</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Username: Ash Ketchum</h2>
+        <h3>My Pokémon Cards:</h3>
+        <div class="card">
+            <h4>Pikachu</h4>
+            <p>Type: Electric</p>
+            <button>Sell Back to Admin</button>
+        </div>
+        <!-- Repeat for other cards the user owns -->
+
+    </div>
+    <footer>
+        <p>© 2024 Pokémon Card Trading Platform</p>
+    </footer>
+</body>
+</html>
