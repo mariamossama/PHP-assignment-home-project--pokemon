@@ -14,5 +14,19 @@ class Storage {
     }
 
     // Add more methods as needed
+    public function addCard($newCard) {
+        $cards = $this->getAllCards();
+
+        // Find the next available card ID
+        $nextId = 0;
+        while (isset($cards["card" . $nextId])) {
+            $nextId++;
+        }
+
+        // Assign the new card ID
+        $cards["card" . $nextId] = $newCard;
+
+        file_put_contents($this->cardsFile, json_encode($cards, JSON_PRETTY_PRINT));
+    }
 }
 ?>

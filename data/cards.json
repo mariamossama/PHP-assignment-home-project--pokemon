@@ -7,7 +7,7 @@
         "defense": 20,
         "price": 160,
         "description": "Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy.",
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
+        "image": "https:\/\/assets.pokemon.com\/assets\/cms2\/img\/pokedex\/full\/025.png"
     },
     "card1": {
         "name": "Charizard",
@@ -17,7 +17,7 @@
         "defense": 78,
         "price": 534,
         "description": "It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames.",
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png"
+        "image": "https:\/\/assets.pokemon.com\/assets\/cms2\/img\/pokedex\/full\/006.png"
     },
     "card2": {
         "name": "Bulbasaur",
@@ -26,8 +26,8 @@
         "attack": 49,
         "defense": 49,
         "price": 318,
-        "description": "A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.",
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
+        "description": "A strange seed was planted on its back at birth. The plant sprouts and grows with this POK\u00e9MON.",
+        "image": "https:\/\/assets.pokemon.com\/assets\/cms2\/img\/pokedex\/full\/001.png"
     },
     "card3": {
         "name": "Squirtle",
@@ -37,7 +37,7 @@
         "defense": 65,
         "price": 314,
         "description": "After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth.",
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"
+        "image": "https:\/\/assets.pokemon.com\/assets\/cms2\/img\/pokedex\/full\/007.png"
     },
     "card4": {
         "name": "Caterpie",
@@ -47,7 +47,7 @@
         "defense": 35,
         "price": 195,
         "description": "Its short feet are tipped with suction pads that enable it to tirelessly climb slopes and walls.",
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png"
+        "image": "https:\/\/assets.pokemon.com\/assets\/cms2\/img\/pokedex\/full\/010.png"
     },
     "card5": {
         "name": "Weedle",
@@ -57,7 +57,7 @@
         "defense": 30,
         "price": 195,
         "description": "Often found in forests, eating leaves. It has a sharp venomous stinger on its head.",
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png"
+        "image": "https:\/\/assets.pokemon.com\/assets\/cms2\/img\/pokedex\/full\/013.png"
     },
     "card6": {
         "name": "Pidgey",
@@ -67,7 +67,7 @@
         "defense": 40,
         "price": 251,
         "description": "A common sight in forests and woods. It flaps its wings at ground level to kick up blinding sand.",
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png"
+        "image": "https:\/\/assets.pokemon.com\/assets\/cms2\/img\/pokedex\/full\/016.png"
     },
     "card7": {
         "name": "Rattata",
@@ -77,7 +77,7 @@
         "defense": 35,
         "price": 253,
         "description": "Bites anything when it attacks. Small and very quick, it is a common sight in many places.",
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png"
+        "image": "https:\/\/assets.pokemon.com\/assets\/cms2\/img\/pokedex\/full\/019.png"
     },
     "card8": {
         "name": "Spearow",
@@ -87,7 +87,7 @@
         "defense": 30,
         "price": 262,
         "description": "Eats bugs in grassy areas. It has to flap its short wings at high speed to stay airborne.",
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/021.png"
+        "image": "https:\/\/assets.pokemon.com\/assets\/cms2\/img\/pokedex\/full\/021.png"
     },
     "card9": {
         "name": "Ekans",
@@ -97,6 +97,16 @@
         "defense": 44,
         "price": 288,
         "description": "Moves silently and stealthily. Eats the eggs of birds, such as PIDGEY and SPEAROW, whole.",
-        "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/023.png"
-}
+        "image": "https:\/\/assets.pokemon.com\/assets\/cms2\/img\/pokedex\/full\/023.png"
+    },
+    "card10": {
+        "name": "mariam",
+        "hp": "7",
+        "type": "poison",
+        "attack": "5",
+        "defense": "4",
+        "price": "5",
+        "description": "lover",
+        "image": "data:image/jpeg;base64,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"
+    }
 }

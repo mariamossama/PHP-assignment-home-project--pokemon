@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         "password" => password_hash($password, PASSWORD_DEFAULT), // Hash the password
     ];
 
-    $usersFile = "users.json"; // Change this to the path where you want to store user data
+    $usersFile = "data/users.json"; // Change this to the path where you want to store user data
     $users = file_exists($usersFile) ? json_decode(file_get_contents($usersFile), true) : [];
 
     // Check if the username or email already exists
