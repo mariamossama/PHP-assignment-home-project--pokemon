@@ -4,22 +4,22 @@ class User {
     private $id;
     private $username;
     private $email;
-    private $password; // Store hashed passwords
+    private $password; 
     private $isAdmin;
-    private $cards; // Array of card IDs owned by the user
-    private $balance; // User's balance to buy cards
+    private $cards; 
+    private $balance; 
 
     public function __construct($id, $username, $email, $password, $isAdmin = false, $cards = [], $balance = 0) {
         $this->id = $id;
         $this->username = $username;
         $this->email = $email;
-        $this->password = $password; // Ensure this is hashed
+        $this->password = $password; 
         $this->isAdmin = $isAdmin;
         $this->cards = $cards;
         $this->balance = $balance;
     }
 
-    // Getters
+    
     public function getId() {
         return $this->id;
     }
@@ -48,13 +48,13 @@ class User {
         return $this->balance;
     }
 
-    // Setters
+   
     public function setEmail($email) {
         $this->email = $email;
     }
 
     public function setPassword($password) {
-        $this->password = $password; // Remember to hash the password
+        $this->password = $password; 
     }
 
     public function setCards($cards) {
@@ -65,7 +65,6 @@ class User {
         $this->balance = $balance;
     }
 
-    // Add or remove a card from the user's collection
     public function addCard($cardId) {
         if (!in_array($cardId, $this->cards)) {
             $this->cards[] = $cardId;
@@ -78,7 +77,6 @@ class User {
         });
     }
 
-    // Method to purchase a card
     public function purchaseCard($card, $cardPrice) {
         if ($this->balance >= $cardPrice && !in_array($card->getId(), $this->cards)) {
             $this->balance -= $cardPrice;
@@ -86,7 +84,6 @@ class User {
         }
     }
 
-    // Other methods as needed for your application
 }
 
 ?>

@@ -1,3 +1,19 @@
+<?php
+session_start(); // Start the session
+require_once("storage.php"); 
+require_once("card.php");
+
+$storage = new Storage("data/users.json", "data/cards.json");
+$cards = $storage->getAllCards();
+
+// Add filter logic here if necessary
+$selectedType = $_GET['type'] ?? 'all';
+if ($selectedType != 'all') {
+    $cards = array_filter($cards, function($card) use ($selectedType) {
+        return $card['type'] == $selectedType;
+    });
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,42 +80,45 @@
     </header>
     <nav>
         <ul>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Register</a></li>
-            <li><a href="user_details.html">My Profile</a></li>
+            <?php if (isset($_SESSION["username"])): ?>
+                <li><a href="user_details.php"><?php echo htmlspecialchars($_SESSION["username"]); ?></a> (Money: <?php echo htmlspecialchars($_SESSION["money"]); ?>)</li>
+                <li><a href="logout.php">Logout</a></li>
+            <?php else: ?>
+                <li><a href="login.php">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
     <div class="container">
+        <!-- Filter Form -->
+        <form action="index.php" method="get">
+            <select name="type">
+                <option value="all">All Types</option>
+                <option value="fire">Fire</option>
+                <option value="poison">Poison</option>
+                <option value="normal">Normal</option>
+                <option value="bug">Bug</option>
+                <option value="grass">Grass</option>
+                <option value="electric">Electric</option>
+                
+                <!-- Other types -->
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+
         <section class="card-list">
-            <?php
-            // Include necessary classes and functions
-            require_once("storage.php"); // Include your Storage class
-            require_once("card.php");   // Include your Card class
-
-            // Initialize the storage
-            $storage = new Storage("data/users.json", "data/cards.json"); // Update with your file paths
-
-            // Retrieve all cards
-            $cards = $storage->getAllCards();
-
-            // Loop through the cards and generate HTML
-            foreach ($cards as $cardData) {
-            ?>
-<div class="card">
-    <?php foreach ($cards as $cardId => $cardData): ?>
-        <img src="<?php echo $cardData['image']; ?>" alt="<?php echo $cardData['name']; ?>">
-        <h3><?php echo $cardData['name']; ?></h3>
-        <h3><a href="card_details.php?cardId=<?php echo $cardId; ?>"><?php echo $cardData['name']; ?></a></h3>
-        <p>Type: <?php echo $cardData['type']; ?></p>
-        <p>Description: <?php echo $cardData['description']; ?></p>
-        <p>Price: <?php echo $cardData['price']; ?></p>
-    <?php endforeach; ?>
-</div>
-
-
-            <?php
-            }
-            ?>
+            <?php foreach ($cards as $cardId => $cardData): ?>
+                <div class="card">
+                    <img src="<?php echo htmlspecialchars($cardData['image']); ?>" alt="<?php echo htmlspecialchars($cardData['name']); ?>">
+                    <h3><a href="card_details.php?cardId=<?php echo $cardId; ?>"><?php echo htmlspecialchars($cardData['name']); ?></a></h3>
+                    <p>Type: <?php echo htmlspecialchars($cardData['type']); ?></p>
+                    <p>Description: <?php echo htmlspecialchars($cardData['description']); ?></p>
+                    <p>Price: <?php echo htmlspecialchars($cardData['price']); ?></p>
+                    <?php if (isset($_SESSION["username"])): ?>
+                        <button>Buy</button>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
         </section>
     </div>
     <footer>

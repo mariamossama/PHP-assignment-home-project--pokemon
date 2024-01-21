@@ -1,34 +1,72 @@
 <?php
 session_start();
 
-// Check if the user is already logged in
 if (isset($_SESSION["user_id"])) {
-    header("Location: user_details.php");
+    header("Location: index.php");
     exit;
 }
 
-// Validate and process user login
+$loginError = '';
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    // Load user data (from the same file or database used for registration)
-    $usersFile = "users.json"; // Update with the actual path to your user data file
+    $usersFile = "data/users.json"; 
     $users = file_exists($usersFile) ? json_decode(file_get_contents($usersFile), true) : [];
+    $userFound = false;
 
     foreach ($users as $user) {
-        if ($user["username"] === $username && password_verify($password, $user["password"])) {
-            // Login successful
-            $_SESSION["user_id"] = uniqid(); // Assign a unique user identifier
-            $_SESSION["username"] = $username;
-            header("Location: user_details.php");
-            exit;
+        if ($user["username"] === $username) {
+            $userFound = true;
+            if (password_verify($password, $user["password"])) {
+
+                $_SESSION["user_id"] = uniqid(); 
+                $_SESSION["username"] = $username;
+                $_SESSION["money"] = 1000;
+            
+                header("Location: index.php"); 
+                exit;
+            }
+            break;
         }
     }
 
-    // Login failed
-    $_SESSION["login_error"] = "Invalid username or password.";
-    header("Location: login.html");
-    exit;
+    if (!$userFound || !password_verify($password, $user["password"])) {
+ 
+        $loginError = "Invalid username or password.";
+    }
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Pokémon Card Trading</title>
+</head>
+<body>
+    <header>
+        <h1>Login to Your Account</h1>
+    </header>
+    <div class="container">
+        <?php if (!empty($loginError)): ?>
+            <p style="color: red;"><?php echo $loginError; ?></p>
+        <?php endif; ?>
+
+        <form action="login.php" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="register.php">Register here</a></p>
+    </div>
+</body>
+</html>

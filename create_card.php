@@ -13,11 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $description = $_POST['description'] ?? '';
     $image = $_POST['image'] ?? '';
 
-    // Basic validation
+
     if (empty($name) || empty($hp) || empty($type) || empty($attack) || empty($defense) || empty($price) || empty($image)) {
         $errorMessage = 'All fields are required.';
     } else {
-        // Validation successful
+
         $storage = new Storage('data/users.json', 'data/cards.json');
         $newCard = [
             'name' => $name,
@@ -41,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <title>Create New Card</title>
     <style>
-        /* Add your styles here */
         .error { color: red; }
     </style>
 </head>

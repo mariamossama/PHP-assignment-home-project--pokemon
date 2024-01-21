@@ -10,7 +10,7 @@ class Card {
     private $price;
     private $description;
     private $image;
-    private $ownerId; // ID of the user who owns the card
+    private $ownerId;
 
     public function __construct($id, $name, $hp, $element, $attack, $defense, $price, $description, $image, $ownerId = null) {
         $this->id = $id;
@@ -25,7 +25,6 @@ class Card {
         $this->ownerId = $ownerId;
     }
 
-    // Getters
     public function getId() {
         return $this->id;
     }
@@ -66,12 +65,11 @@ class Card {
         return $this->ownerId;
     }
 
-    // Setters
+
     public function setOwnerId($ownerId) {
         $this->ownerId = $ownerId;
     }
 
-    // Other methods as needed, for example, to update card details
 }
 
 ?>
